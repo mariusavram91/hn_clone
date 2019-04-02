@@ -1,0 +1,125 @@
+table {
+    white-space: normal;
+    line-height: normal;
+    font-weight: normal;
+    font-size: medium;
+    font-style: normal;
+    color: -internal-quirk-inherit;
+    text-align: start;
+    font-variant: normal;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+td, th {
+    display: table-cell;
+    vertical-align: inherit;
+}
+
+.loading {
+  display: block;
+}
+
+.mainTitleRow td {
+    padding: 5px 25px;
+}
+
+.mainTitleRow a {
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.metaRow {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 7pt;
+  color: #828282;
+}
+
+#comments .metaRow td {
+  padding: 3px 10px;
+}
+
+.commentRow td {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 9pt;
+  padding: 3px 10px 10px 10px;
+}
+
+
+.indexSpan {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #828282;
+}
+
+.originUrl {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 8pt;
+  color: #828282;
+}
+
+.titleSpan a:link {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #000000;
+  text-decoration: none;
+}
+
+.more {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color:#828282;
+  text-decoration: none;
+}
+
+.more a:visited {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color:#828282;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.more a:link {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color: #000000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.titleSpan a:visited {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 10pt;
+  color:#828282;
+  text-decoration: none;
+}
+
+.metaRow a:link {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 7pt;
+  color: #000000;
+  text-decoration: none;
+}
+
+.metaRow a:visited {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 7pt;
+  color:#828282;
+  text-decoration: none;
+}
+
+.spacer, .spacerRow {
+  height: 5px;
+}
