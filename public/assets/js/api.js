@@ -3,7 +3,7 @@ const apiBaseUrl = 'https://hacker-news.firebaseio.com/v0'
 const nowTime = new Date().getTime();
 const pagination = 30;
 
-var HackerNews = {
+const HackerNews = {
     getTopStories: function() {
         return request(apiBaseUrl + '/topstories.json')
     },
@@ -18,7 +18,7 @@ var HackerNews = {
     }
 }
 
-var request = function(url) {
+const request = function(url) {
     return fetch(url).then(function(response) {
             return response.json();
         }).then(function(responseJson) {
@@ -28,7 +28,7 @@ var request = function(url) {
         });
 }
 
-var getTimeDifferenceToNow = {
+const getTimeDifferenceToNow = {
     inSeconds: function(date) {
         const t1 = date.getTime();
 
@@ -51,7 +51,7 @@ var getTimeDifferenceToNow = {
     },
 }
 
-var getTimeToNow = function(date) {
+const getTimeToNow = function(date) {
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
     ];
@@ -94,7 +94,7 @@ var getTimeToNow = function(date) {
     return time + show;
 }
 
-var paginate = function(currentPage) {
+const paginate = function(currentPage) {
     let start = 0;
     let end = pagination;
 
@@ -112,13 +112,13 @@ var paginate = function(currentPage) {
     };
 }
 
-var cleanBodyOf = function(id) {
+const cleanBodyOf = function(id) {
     const itemList = document.getElementById(id);
     const itemListBody = itemList.getElementsByTagName('tbody')[0];
     itemListBody.innerHTML = "";
 }
 
-var toggleLoading = function() {
+const toggleLoading = function() {
     let loading = document.getElementById('loading');
     if(loading.style.display !== "none") {
         loading.style.display = "none";
@@ -127,13 +127,13 @@ var toggleLoading = function() {
     }
 }
 
-var getPageFromUrl = function() {
+const getPageFromUrl = function() {
     if(window.location.hash) {
         return parseInt(window.location.hash.substr(1));
     }
 }
 
-var getStoriesForCurrentPage = function(page) {
+const getStoriesForCurrentPage = function(page) {
     const pageFromUrl = getPageFromUrl();
     if(pageFromUrl && page === 1) {
         // Will get the page from the URL hash on refresh of the page or manual
@@ -144,7 +144,7 @@ var getStoriesForCurrentPage = function(page) {
     }
 }
 
-var isStoryView = function() {
+const isStoryView = function() {
     if(window.location.href.indexOf("story") > -1) {
         return true;
     }
@@ -152,11 +152,11 @@ var isStoryView = function() {
     return false;
 }
 
-var getStoryIdFromUrl = function() {
+const getStoryIdFromUrl = function() {
     return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 }
 
-var getStories = function(page) {
+const getStories = function(page) {
     const p = paginate(page);
 
     HackerNews.getTopStories().then(function(storiesIds) {
@@ -174,7 +174,7 @@ var getStories = function(page) {
     });
 }
 
-var getComments = function(storyId) {
+const getComments = function(storyId) {
     HackerNews.getItem(storyId).then(function(story) {
         if(story.kids) {
             let commentsPromises = [];
@@ -194,14 +194,14 @@ var getComments = function(storyId) {
     });
 }
 
-var createSpacerRow = function() {
+const createSpacerRow = function() {
     const spacerRow = document.createElement('tr');
     spacerRow.className = "spacerRow";
 
     return spacerRow;
 }
 
-var createDomainSpan = function(url) {
+const createDomainSpan = function(url) {
     const domain = (new URL(url)).host;
     const domainSpan = document.createElement('span');
 
@@ -211,7 +211,7 @@ var createDomainSpan = function(url) {
     return domainSpan;
 }
 
-var createCommentsLink = function(storyUrl, commentsAmount) {
+const createCommentsLink = function(storyUrl, commentsAmount) {
     const comments = " | " + commentsAmount  + (commentsAmount > 1 ? " comments" : " comment");
     const commentsLink = document.createElement('a');
     commentsLink.href = storyUrl;
@@ -220,7 +220,7 @@ var createCommentsLink = function(storyUrl, commentsAmount) {
     return commentsLink;
 }
 
-var populateStories = function(data, startPagination, nextPage) {
+const populateStories = function(data, startPagination, nextPage) {
     const itemList = document.getElementById('itemList');
     const itemListBody = itemList.getElementsByTagName('tbody')[0];
 
@@ -339,7 +339,7 @@ var populateStories = function(data, startPagination, nextPage) {
     toggleLoading();
 }
 
-var populateComments = function(story, data) {
+const populateComments = function(story, data) {
     const storyUrl = "/story/" + story.id;
 
     const item = document.getElementById('item');
