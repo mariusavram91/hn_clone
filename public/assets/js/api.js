@@ -97,6 +97,7 @@ var getTimeToNow = function(date) {
 var paginate = function(currentPage) {
     let start = 0;
     let end = pagination;
+
     if(currentPage > 1) {
         let currentLastItem = (currentPage - 1) * pagination;
         start = currentLastItem;
@@ -107,7 +108,7 @@ var paginate = function(currentPage) {
     return {
         start: start,
         end: end,
-        nextPage: currentPage++,
+        nextPage: currentPage + 1,
     };
 }
 
@@ -128,20 +129,18 @@ var toggleLoading = function() {
 
 var getPageFromUrl = function() {
     if(window.location.hash) {
-        return parseInt(window.location.hash.substr(1)) + 1;
+        return parseInt(window.location.hash.substr(1));
     }
 }
 
-var getStoriesForCurrentPage = function() {
-    cleanBodyOf('itemList');
-
-    toggleLoading();
-
+var getStoriesForCurrentPage = function(page) {
     const pageFromUrl = getPageFromUrl();
-    if(pageFromUrl) {
+    if(pageFromUrl && page === 1) {
+        // Will get the page from the URL hash on refresh of the page or manual
+        // page assignation
         getStories(pageFromUrl);
     } else {
-        getStories(2);
+        getStories(page);
     }
 }
 
@@ -221,7 +220,7 @@ var createCommentsLink = function(storyUrl, commentsAmount) {
     return commentsLink;
 }
 
-var populateStories = function(data, startPagination, page) {
+var populateStories = function(data, startPagination, nextPage) {
     const itemList = document.getElementById('itemList');
     const itemListBody = itemList.getElementsByTagName('tbody')[0];
 
@@ -320,11 +319,15 @@ var populateStories = function(data, startPagination, page) {
     const moreRowTitleColumn = document.createElement('td');
     const moreLink = document.createElement('a');
     moreRow.appendChild(moreRowTopColumn);
-    moreLink.href = "#" + page;
+    moreLink.href = "#" + nextPage;
     moreLink.className = "more";
     moreLink.innerHTML = "More";
     moreLink.onclick = function() {
-        getStoriesForCurrentPage();
+        cleanBodyOf('itemList');
+
+        toggleLoading();
+
+        getStoriesForCurrentPage(nextPage);
     }
 
     moreRowTitleColumn.appendChild(moreLink);
@@ -428,11 +431,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         const storyId = getStoryIdFromUrl();
         getComments(storyId);
     } else {
-        const pageFromUrl = getPageFromUrl();
-        if(pageFromUrl) {
-            getStories(pageFromUrl - 1);
-        } else {
-            getStories(1);
-        }
+        getStoriesForCurrentPage(1);
     }
 });
