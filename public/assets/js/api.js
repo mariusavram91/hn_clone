@@ -152,6 +152,14 @@ const isStoryView = function() {
     return false;
 }
 
+const isNewStoriesView = function() {
+    if(window.location.href.indexOf("new") > -1) {
+        return true;
+    }
+
+    return false;
+}
+
 const getStoryIdFromUrl = function() {
     return window.location.href.substr(window.location.href.lastIndexOf('/') + 1);
 }
@@ -159,7 +167,12 @@ const getStoryIdFromUrl = function() {
 const getStories = function(page) {
     const p = paginate(page);
 
-    HackerNews.getTopStories().then(function(storiesIds) {
+    let getTypeStories = HackerNews.getTopStories;
+    if(isNewStoriesView()) {
+        getTypeStories = HackerNews.getNewStories;
+    }
+
+    getTypeStories().then(function(storiesIds) {
         let storiesPromises = [];
 
         storiesIds.slice(p.start, p.end).forEach(function(storyId, position) {
