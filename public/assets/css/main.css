@@ -1,3 +1,7 @@
+body {
+  font-family: Verdana, Geneva, sans-serif;
+}
+
 table {
     white-space: normal;
     line-height: normal;
@@ -34,65 +38,59 @@ td, th {
     padding: 5px 25px;
 }
 
+.storyRow td, #item .metaRow td {
+    padding: 0px 25px;
+}
+
 .mainTitleRow a {
   text-decoration: none;
   color: black;
   font-weight: bold;
+  font-size: 10pt;
 }
 
 .metaRow {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 7pt;
   color: #828282;
 }
 
 #comments .metaRow td {
-  padding: 3px 10px;
+  padding: 3px 10px 0px 25px;
 }
 
 .commentRow td {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 9pt;
-  padding: 3px 10px 10px 10px;
+  padding: 3px 10px 10px 25px;
 }
 
 
 .indexSpan {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   color: #828282;
 }
 
 .originUrl {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 8pt;
   color: #828282;
 }
 
 .titleSpan a:link {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   color: #000000;
   text-decoration: none;
 }
 
 .more {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   color:#828282;
   text-decoration: none;
 }
 
 .more a:visited {
-  font-family: Verdana, Geneva, sans-serif;
-  font-size: 10pt;
   color:#828282;
-  text-decoration: none;
-  cursor: pointer;
 }
 
 .more a:link {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   color: #000000;
   text-decoration: none;
@@ -100,21 +98,18 @@ td, th {
 }
 
 .titleSpan a:visited {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 10pt;
   color:#828282;
   text-decoration: none;
 }
 
 .metaRow a:link {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 7pt;
   color: #000000;
   text-decoration: none;
 }
 
 .metaRow a:visited {
-  font-family: Verdana, Geneva, sans-serif;
   font-size: 7pt;
   color:#828282;
   text-decoration: none;
@@ -122,4 +117,9 @@ td, th {
 
 .spacer, .spacerRow {
   height: 5px;
+}
+
+a.menuItem {
+  font-weight: 300;
+  margin-left: 15px;
 }

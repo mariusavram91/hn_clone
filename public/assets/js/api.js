@@ -377,7 +377,7 @@ const populateComments = function(story, data) {
     titleLink.innerHTML = story.title;
 
     titleSpan.appendChild(titleLink);
-    storyRow.appendChild(titleSpan);
+    storyRowTitleColumn.appendChild(titleSpan);
 
     if(story.url) {
         const domainSpan = createDomainSpan(story.url);
