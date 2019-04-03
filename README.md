@@ -2,6 +2,8 @@
 
 Hacker News Clone built using Silex PHP micro framework + Vanilla Javascript. [See demo](http://hn-clone-2.herokuapp.com/)
 
+[![Build Status](https://travis-ci.org/mariusavram91/hn_clone.svg?branch=master)](https://travis-ci.org/mariusavram91/hn_clone)
+
 Install requirements:
 ```
 $ composer install

@@ -1,0 +1,10 @@
+language: php
+php:
+  - '7.3'
+services:
+  - docker
+install:
+  - docker build --file docker/Dockerfile -t hn .
+  - docker run -d -p 127.0.0.1:80:80 --name hn hn
+script:
+  - docker ps | grep -q hn
