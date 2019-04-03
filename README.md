@@ -12,9 +12,21 @@ Run a server locally:
 $ php -S localhost:8080 -t public
 ```
 
+## Docker
+
+To build the container use:
+```
+$ docker build --file docker/Dockerfile -t hn .
+```
+
+To run it:
+```
+$ docker run --rm -p 8080:80 hn
+```
+
 ## TODO
 
-- [ ] Docker
+- [x] Docker
 - [ ] Nested comments
 - [ ] Other pages
 - [ ] Clean up and improve CSS
